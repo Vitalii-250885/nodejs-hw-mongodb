@@ -1,6 +1,6 @@
-import { Schema } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-export const contactsSchema = new Schema(
+const contactsSchema = new Schema(
   {
     name: {
       type: String,
@@ -25,15 +25,11 @@ export const contactsSchema = new Schema(
       default: 'personal',
       required: true,
     },
-    createdAt: {
-      timestamps: true,
-    },
-    updatedAt: {
-      timestamps: true,
-    },
   },
   {
     timestamps: true,
     versionKey: false,
   },
 );
+
+export const ContactsCollection = model('contacts', contactsSchema);
