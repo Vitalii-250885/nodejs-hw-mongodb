@@ -42,10 +42,11 @@ export const getContactById = async (contactId, userId) => {
   return contact;
 };
 
-export const createContact = async (payload, userId) => {
+export const createContact = async (payload, userId, photoUrl) => {
   return await ContactsCollection.create({
     ...payload,
     userId,
+    photo: photoUrl,
   });
 };
 
